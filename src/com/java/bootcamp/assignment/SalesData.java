@@ -1,21 +1,24 @@
 package com.java.bootcamp.assignment;
 
+import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
+
 public class SalesData {
 
-	private String date;
+	private YearMonth date;
 	private int sales;
 	
 	
-	
 	public SalesData(String date, int sales) {
-		this.date = date;
+		this.date = YearMonth.parse(date, DateTimeFormatter.ofPattern("MMM-yy"));
+		//System.out.println("input date " + date + "===" + "Formatted Date " + this.date);
 		this.sales = sales;
 	}
 	
-	public String getDate() {
+	public YearMonth getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	public void setDate(YearMonth date) {
 		this.date = date;
 	}
 	public int getSales() {
