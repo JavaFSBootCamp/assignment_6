@@ -18,9 +18,9 @@ public class SalesDataService {
 
 	public static String fetchWorstMonthSalesData(List<SalesData> salesData) {
 		String minData = salesData
-				.stream()
-				.min((a, b) -> a.getSales().compareTo(b.getSales()))
-				.get().getDate().toString();
+							.stream()
+							.min((a, b) -> a.getSales().compareTo(b.getSales()))
+							.get().getDate().toString();
 	
 		return minData;
 	}
