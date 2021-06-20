@@ -6,22 +6,23 @@ import java.time.format.DateTimeFormatter;
 public class SalesData {
 
 	private YearMonth date;
-	private int sales;
+	private Integer sales;
 	
 	
-	public SalesData(String date, int sales) {
+	public SalesData(String date, Integer sales) {
 		this.date = YearMonth.parse(date, DateTimeFormatter.ofPattern("MMM-yy"));
 		//System.out.println("input date " + date + "===" + "Formatted Date " + this.date);
 		this.sales = sales;
 	}
 	
+
 	public YearMonth getDate() {
 		return date;
 	}
 	public void setDate(YearMonth date) {
 		this.date = date;
 	}
-	public int getSales() {
+	public Integer getSales() {
 		return sales;
 	}
 	public void setSales(int sales) {

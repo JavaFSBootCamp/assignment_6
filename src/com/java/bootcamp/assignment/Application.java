@@ -1,6 +1,8 @@
 package com.java.bootcamp.assignment;
 
 import java.util.ArrayList;
+import java.util.List;
+
 
 
 public class Application {
@@ -11,21 +13,17 @@ public class Application {
 		ArrayList<SalesData> modelSData = (ArrayList<SalesData>) fileService.extractDataFromCSV("modelS.csv");
 		ArrayList<SalesData> modelXData = (ArrayList<SalesData>) fileService.extractDataFromCSV("modelX.csv");
 		
-		
-		
-		
-//		for(SalesData obj:model3Data) {
-//			System.out.println(obj.getDate() + "====" + obj.getSales());
-//		}
-//		System.out.println("==================================================================");
-//		for(SalesData obj:modelSData) {
-//			System.out.println(obj.getDate() + "====" + obj.getSales());
-//		}
-//		System.out.println("==================================================================");
-//		for(SalesData obj:modelSData) {
-//			System.out.println(obj.getDate() + "====" + obj.getSales());
-//		}
-//		System.out.println("==================================================================");
+		printSalesReport(model3Data, "Model 3");
+		printSalesReport(modelSData, "Model S");
+		printSalesReport(modelXData, "Model X");
 	}
-		
+	
+	
+	private static void printSalesReport(List<SalesData> salesData, String type) {
+		System.out.println(type + " Yearly Sales Report");
+		System.out.println("---------------------------");
+		System.out.println(SalesDataService.fetchReportData(salesData) + "\n");
+		System.out.println("The best month for "+ type + " was: " + SalesDataService.fetchBestMonthSalesData(salesData));
+		System.out.println("The worst month for "+ type + " was: " + SalesDataService.fetchWorstMonthSalesData(salesData)+ "\n");
+	}
 }
